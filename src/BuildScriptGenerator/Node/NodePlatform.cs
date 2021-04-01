@@ -165,7 +165,6 @@ namespace Microsoft.Oryx.BuildScriptGenerator.Node
             string runBuildLageCommand = null;
             string installLernaCommand = null;
             bool configureYarnCache = false;
-            string yarnCacheFolderName = null;
             string packageManagerCmd = null;
             string packageInstallCommand = null;
             string packageInstallerVersionCommand = null;
@@ -188,10 +187,8 @@ namespace Microsoft.Oryx.BuildScriptGenerator.Node
                 // Applying yarn 2 cache folder name and package install command.
                 if (nodePlatformDetectorResult.HasYarnrcYmlFile
                     || nodePlatformDetectorResult.IsYarnLockFileValidYamlFormat) {
-                    yarnCacheFolderName = NodeConstants.Yarn2ConfigFolderName;
                     packageInstallCommand = NodeConstants.Yarn2PackageInstallCommand;
                 } else {
-                    yarnCacheFolderName = NodeConstants.Yarn1ConfigFolderName;
                     packageInstallCommand = NodeConstants.YarnPackageInstallCommand;
                 }
             }
@@ -358,7 +355,6 @@ namespace Microsoft.Oryx.BuildScriptGenerator.Node
                 CompressNodeModulesCommand = compressNodeModulesCommand,
                 CompressedNodeModulesFileName = compressedNodeModulesFileName,
                 ConfigureYarnCache = configureYarnCache,
-                YarnCacheFolderName = yarnCacheFolderName,
                 PruneDevDependencies = pruneDevDependencies,
                 AppInsightsInjectCommand = appInsightsInjectCommand,
                 AppInsightsPackageName = NodeConstants.NodeAppInsightsPackageName,
